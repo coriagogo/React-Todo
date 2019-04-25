@@ -3,15 +3,15 @@ import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
 
-const todoData = [
+const todos = [
   {
-    task: 'Organize Garage',
+    name: 'Organize Garage',
     id: 1528817077286,
     completed: false
   },
 
   {
-    task: 'Bake Cookies',
+    name: 'Bake Cookies',
     id: 1528817084358,
     completed: false
   }
@@ -24,16 +24,16 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todoData
+      todos
     };
   }
 
   addItem = item => {
     this.setState({
-      todoData: [
-        ...this.state.todoData,
+      todos: [
+        ...this.state.todos,
         {
-          task: item,
+          name: item,
           id: Date.now(),
           completed: false
         }
@@ -43,7 +43,7 @@ class App extends React.Component {
 
   toggleComplete = id => {
     this.setState({
-      todoData: this.state.todoData.map(item =>
+      todos: this.state.todos.map(item =>
         item.id === id ? { ...item, completed: !item.completed } : item
       )
     });
@@ -51,7 +51,7 @@ class App extends React.Component {
 
   removeCompleted = () => {
     this.setState({
-      todoData: this.state.todoData.filer(item => !item.completed)
+      todos: this.state.todos.filter(item => !item.completed)
     });
   };  
   
@@ -63,10 +63,10 @@ class App extends React.Component {
           <TodoForm addItem={this.addItem} />          
         </div>
         <TodoList
-          todoData={this.state.todoData}
+          todos={this.state.todos}
           toggleComplete={this.toggleComplete}
         />
-        <button onClick={this.removeCompleted}>Clear Completed</button>
+        <button className="clear-btn" onClick={this.removeCompleted}>Clear Completed</button>
       </div>
     );
   }

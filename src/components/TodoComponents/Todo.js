@@ -14,7 +14,7 @@ const Todo = props => {
 
     return (
         <div className={classNames} onClick={updateCompletedHere}>
-            <p>{props.item.task}</p>
+            <p>{props.item.name}</p>
         </div>
 
     );

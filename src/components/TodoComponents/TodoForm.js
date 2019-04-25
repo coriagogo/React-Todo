@@ -29,8 +29,9 @@ class TodoForm extends React.Component {
                     id="new-item"
                     value={this.state.input}
                     onChange={this.onUpdate}
+                    placeholder="... to do"
                 />
-                <button type="submit">Add To Do</button>
+                <button type="submit">Add</button>
             </form>
         );
     }
