@@ -4,17 +4,7 @@ import TodoForm from './components/TodoComponents/TodoForm';
 
 
 const todos = [
-  {
-    name: 'Organize Garage',
-    id: 1528817077286,
-    completed: false
-  },
-
-  {
-    name: 'Bake Cookies',
-    id: 1528817084358,
-    completed: false
-  }
+    
 ]
 
 class App extends React.Component {
