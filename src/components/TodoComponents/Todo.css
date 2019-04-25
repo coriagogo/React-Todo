@@ -57,9 +57,9 @@ h1 {
 .item {
     background-color: #F9A9B9;
     font-size: 22px;
-    width: 60%;
+    width: 75%;
     text-align: left;
-    margin: 4px 0;
+    margin: 10px auto;
     padding-left: 8px;
 }
 
