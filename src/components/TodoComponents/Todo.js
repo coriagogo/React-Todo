@@ -1,10 +1,22 @@
 import React from 'react';
 
+
 const Todo = props => {
+
+    let classNames = "item";
+    if (props.item.completed) {
+        classNames += " completed";
+    }
+
+    function updateCompletedHere() {
+        props.toggleComplete(props.item.id);
+    }
+
     return (
-        <div>
-            {props.todo.task}
+        <div className={classNames} onClick={updateCompletedHere}>
+            <p>{props.item.task}</p>
         </div>
+
     );
 }
 

@@ -5,10 +5,10 @@ import Todo from './Todo';
 
 const TodoList = props => {
     return (
-        <div>
-            {props.todoData.map(todo => (
-                <Todo todo={todo} />
-            ))}
+        <div className="todo-list">
+            {props.todoData.map(item => {
+                <Todo key={item.id} item={item} toggleComplete={props.toggleComplete} />
+            })}            
         </div>
     );
 }

@@ -3,7 +3,7 @@ import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
 
-const todoArray = [
+const todoData = [
   {
     task: 'Organize Garage',
     id: 1528817077286,
@@ -24,47 +24,49 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todoData: todoArray,
-      newTodo: {
-        task: '',
-        id: '',
-        completed: ''
-      }
+      todoData
     };
   }
 
-
-
-  
-  handleChanges = event => {
-    console.log(event.target.name);
+  addItem = item => {
     this.setState({
-      newTodo: {
-        ...this.state.newTodo,
-        task: event.target.value,
-        id: Date.now(),
-        completed: false
-      }
+      todoData: [
+        ...this.state.todoData,
+        {
+          task: item,
+          id: Date.now(),
+          completed: false
+        }
+      ]
     });
   };
 
-  addTodo = event => {
-    event.preventDefault();
+  toggleComplete = id => {
     this.setState({
-      todoData: [...this.state.todoData, this.state.newTodo],
-      newTodo: {
-        task: '',
-        id: '',
-        completed: ''
-      }
+      todoData: this.state.todoData.map(item =>
+        item.id === id ? { ...item, completed: !item.completed } : item
+      )
     });
-  }
+  };
+
+  removeCompleted = () => {
+    this.setState({
+      todoData: this.state.todoData.filer(item => !item.completed)
+    });
+  };  
   
   render() {
     return (
-      <div>
-      <TodoList todoData={this.state.todoData} />
-      <TodoForm newTodo={this.state.newTodo} what={this} />
+      <div className="App">
+        <div className="header">
+          <h1>To Do List</h1>
+          <TodoForm addItem={this.addItem} />          
+        </div>
+        <TodoList
+          todoData={this.state.todoData}
+          toggleComplete={this.toggleComplete}
+        />
+        <button onClick={this.removeCompleted}>Clear Completed</button>
       </div>
     );
   }

@@ -1,0 +1,38 @@
+.addToDo {
+    height: 50px;
+    width: 125px;
+    background-color: pink;
+    border-radius: 10px;
+    font-size: 20px;
+    color: white;
+    border: 2px solid white;
+}
+
+.addToDo:hover {
+    background-color: white;
+    color: pink;
+    border: 2px solid pink;
+}
+
+.clearToDo {
+    height: 50px;
+    width: 125px;
+    background-color: paleturquoise;
+    border-radius: 10px;
+    font-size: 20px;
+    color: white;
+    border: 2px solid white;
+    line-height: .75;
+}
+
+.clearToDo:hover {
+    background-color: white;
+    color: paleturquoise;
+    border: 2px solid paleturquoise;
+}
+
+.buttons {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 20px;
+}
