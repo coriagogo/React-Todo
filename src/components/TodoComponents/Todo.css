@@ -70,7 +70,8 @@ h1 {
 form {
     width: 50%;
     display: flex;
-    justify-content: flex-end;
+    margin: 0 auto;
+    
 }
 form > input {
     font-family: 'Megrim', cursive;
@@ -78,11 +79,11 @@ form > input {
     border: 0;
     padding: 6px 0;
     font-size: 1.5rem;
-    width: 240px;
+    width: 100%;
     outline: 0;
-    color: white;
+    color: #ea8591;
     border-bottom: 1px solid #ea8591;
-    margin-right: 8px;
+    margin: 0 auto;
 }
 
 button {
@@ -92,6 +93,7 @@ button {
     color: white;
     font-size: 30px;
     padding: 6px 14px;
+    margin-left: 20px;
 }
 
 input::placeholder {
